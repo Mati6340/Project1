@@ -71,15 +71,9 @@ public class ArrayPolynomial implements Polynomial {
 		// Postcondition: The returned polynomial is the sum of this
 		// and p. Both this and p are unchanged.
 		Polynomial q = new ArrayPolynomial();
-		for (int i = 0; i < this.ArrayPolynomial.length; i++) {
-			for (int j = 0; j < 100; j++) {
-				
-			if (this.ArrayPolynomial[i] != 0) {
-				this.ArrayPolynomial[i] += this.ArrayPolynomial[i];
-			}
-		}
-		
-		}
+		for (int i = 0; i < 100; i++) 
+				q[i] = p[i]+this.ArrayPolynomial[i];
+	
 		return q;
 	}
 
