@@ -7,10 +7,20 @@
 public class PolynomialDriver {
 	static public void showInfo(Polynomial p) {
 		p.displayPolynomial();
+		System.out.println(showEquation(p))
 		System.out.println("Its degree is " + p.degree() + "\n");
 
 	} // showInfo
-
+	static public String showEquation(Polynomial p) {
+		StringBuilder stringBuilder = new StringBuilder(100);
+		 stringBuilder.append("p = ")
+		for (int i = 0; i < 100; i++) {
+			if(ArrayPolynomial[i] != 0) {
+				stringBuilder.apped(" "+ArrayPolynomial[i]+"^"+i)
+			};
+		}
+		return stringBuilder.toString()
+	}
 	static public void main(String[] args) {
 
 		//double[] k = { 7.5, 1, 0, 0, 9, 0, 7, 8, -3.2, 0, 0, 0, 0, 0, 10 };

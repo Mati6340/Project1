@@ -73,7 +73,7 @@ public class ArrayPolynomial implements Polynomial {
 		Polynomial q = new ArrayPolynomial();
 		for (int i = 0; i < 100; i++) 
 				q[i] = p[i]+this.ArrayPolynomial[i];
-	
+		
 		return q;
 	}
 
@@ -112,6 +112,7 @@ public class ArrayPolynomial implements Polynomial {
 		// Precondition: None.
 		// Postcondition: None.
 		// Throws: None.
+		// p = 2.5x^4 + -5.5x^3 + 3.0
 	}
 
 } // end Polynomial
