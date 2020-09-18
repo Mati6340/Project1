@@ -57,7 +57,7 @@ public interface Polynomial {
 	// Postcondition: None.
 	// Throws: None.
 
-	public void displayPolynomial();
+	public String displayPolynomial();
 	// Display the polynomial.
 	// Precondition: None.
 	// Postcondition: None.

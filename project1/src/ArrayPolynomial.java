@@ -7,13 +7,13 @@ public class ArrayPolynomial implements Polynomial {
 	// instance variables/data fields
 	// declare array of size 100
 
-	private double[] ArrayPolynomial = new double[100];
+	public double[] ArrayP = new double[100];
 	private int degree;
 
 	public ArrayPolynomial() { // default Constructor
 		degree = 0;
 		for (int i = 0; i < 100; i++) {
-			ArrayPolynomial[i] = 0;
+			ArrayP[i] = 0;
 		}
 	}
 
@@ -35,12 +35,12 @@ public class ArrayPolynomial implements Polynomial {
 		// coefficient of the x to the power term is returned.
 		// Throws: ExponentOutOfRangeException if exponent is out of range.
 
-		if (power < ArrayPolynomial.length) {
-			return ArrayPolynomial[power];
-		} else if (power > ArrayPolynomial.length) {
+		if (power < this.ArrayP.length) {
+			return this.ArrayP[power];
+		} else if (power > this.ArrayP.length) {
 			throw new ExponentOutOfRangeException("ExponentOutOfRangeException");
 		}
-		return ArrayPolynomial[power];
+		return this.ArrayP[power];
 
 	}
 
@@ -52,10 +52,10 @@ public class ArrayPolynomial implements Polynomial {
 		// Postcondition: If power is not of out range, the coefficient
 		// of the x to the power term will be set to newCoefficent.
 		// Throws: ExponentOutOfRangeException if exponent is out of range.
-		if (power < ArrayPolynomial.length) {
-			ArrayPolynomial[power] = newCoefficient;
+		if (power < this.ArrayP.length) {
+			this.ArrayP[power] = newCoefficient;
 			int i = 99;
-			while (ArrayPolynomial[i] == 0 && i >= 0) {
+			while (this.ArrayP[i] == 0 && i >= 0) {
 				i--;
 			}
 			degree = i;
@@ -70,9 +70,9 @@ public class ArrayPolynomial implements Polynomial {
 		// Precondition: None.
 		// Postcondition: The returned polynomial is the sum of this
 		// and p. Both this and p are unchanged.
-		Polynomial q = new ArrayPolynomial();
+		ArrayPolynomial q = new ArrayPolynomial();
 		for (int i = 0; i < 100; i++) 
-				q[i] = p[i]+this.ArrayPolynomial[i];
+				q.ArrayP[i] = p.getCoefficient(i)+this.ArrayP[i];
 		
 		return q;
 	}
@@ -107,12 +107,20 @@ public class ArrayPolynomial implements Polynomial {
 		return 0.0;
 	}
 
-	public void displayPolynomial() {
+	public String displayPolynomial() {
 		// Display the polynomial.
 		// Precondition: None.
 		// Postcondition: None.
 		// Throws: None.
 		// p = 2.5x^4 + -5.5x^3 + 3.0
+		StringBuilder stringBuilder = new StringBuilder(100);
+		 stringBuilder.append("p = ");
+		for (int i = 0; i < 100; i++) {
+			if(ArrayPolynomial[i] != 0) {
+				stringBuilder.append(" "+ArrayPolynomial[i]+"^"+i);
+			};
+		}
+		return stringBuilder.toString();
 	}
 
 } // end Polynomial
